@@ -54,11 +54,11 @@
     
     switch (self.status) {
         case kCallMissed:
-            return [NSString stringWithFormat:@"Missed call from %@. ", name];
+            return [NSString stringWithFormat:@"Missed call from %@.\n", name];
         case kCallIncoming:
-            return [NSString stringWithFormat:@"You received a call from %@. ", name];
+            return [NSString stringWithFormat:@"You received a call from %@.\n", name];
         case kCallOutgoing:
-            return [NSString stringWithFormat:@"You called %@. ", name];
+            return [NSString stringWithFormat:@"You called %@.\n", name];
         default:
             return nil;
             break;
