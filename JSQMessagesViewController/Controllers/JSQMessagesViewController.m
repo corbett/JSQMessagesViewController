@@ -475,8 +475,8 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
         NSString *dateText = [call dateText];
         NSString *allText = [text stringByAppendingString:dateText];
         const CGFloat fontSize = 14;
-        UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
-        UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
+        UIFont *boldFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12.0f];
+        UIFont *regularFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0f];
         UIColor *foregroundColor = [UIColor whiteColor];
         NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
                                boldFont, NSFontAttributeName, nil];
