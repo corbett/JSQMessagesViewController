@@ -51,7 +51,7 @@
 
 #import "UIFont+OWS.h"
 
-#define LABEL_FONT_SIZE 8
+#define LABEL_FONT_SIZE 10
 
 static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObservingContext;
 
@@ -493,7 +493,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
         callCell.cellLabel.attributedText = attributedText;
         callCell.cellLabel.textColor = [UIColor ows_blueColor];
         callCell.cellLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        callCell.cellLabel.numberOfLines = 0;
+        callCell.cellLabel.numberOfLines = 2;
         [callCell.cellLabel sizeToFit];
         
         BOOL isOutgoing = [self.senderId isEqualToString:call.senderId];
