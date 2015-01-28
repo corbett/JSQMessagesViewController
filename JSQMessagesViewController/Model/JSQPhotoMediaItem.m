@@ -20,7 +20,7 @@
 
 #import "JSQMessagesMediaPlaceholderView.h"
 #import "JSQMessagesMediaViewBubbleImageMasker.h"
-
+#import "FLAnimatedImage.h"
 
 @interface JSQPhotoMediaItem ()
 
@@ -73,11 +73,22 @@
     
     if (self.cachedImageView == nil) {
         CGSize size = [self mediaViewDisplaySize];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:self.image];
+        
+        UIImageView *imageView;
+        if(![self isGIF]) {
+            imageView = [[UIImageView alloc] initWithImage:self.image];
+        }
+        else {
+            FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:UIImagePNGRepresentation(self.image)];
+            imageView = [[FLAnimatedImageView alloc] init];
+            ((FLAnimatedImageView*)imageView).animatedImage = image;
+        }
         imageView.frame = CGRectMake(0.0f, 0.0f, size.width, size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
+
         [JSQMessagesMediaViewBubbleImageMasker applyBubbleImageMaskToMediaView:imageView isOutgoing:self.appliesMediaViewMaskAsOutgoing];
+
         self.cachedImageView = imageView;
     }
     
@@ -106,6 +117,12 @@
 {
     return [NSString stringWithFormat:@"<%@: image=%@, appliesMediaViewMaskAsOutgoing=%@>",
             [self class], self.image, @(self.appliesMediaViewMaskAsOutgoing)];
+}
+
+-(BOOL)isGIF {
+    uint8_t c;
+    [UIImagePNGRepresentation(self.image) getBytes:&c length:1];
+    return c==0x47;
 }
 
 #pragma mark - NSCoding

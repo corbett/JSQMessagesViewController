@@ -1,13 +1,16 @@
 PODS:
+  - FLAnimatedImage (1.0.8)
   - JSQSystemSoundPlayer (2.0.0)
   - OCMock (3.1.1)
 
 DEPENDENCIES:
+  - FLAnimatedImage (~> 1.0)
   - JSQSystemSoundPlayer
   - OCMock
 
 SPEC CHECKSUMS:
+  FLAnimatedImage: 8669ace2a531fc0bb7344a6326f48c3a4c3de84b
   JSQSystemSoundPlayer: c98443b1cbb3b45db09d0d3d6c2355cf78294981
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

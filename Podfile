@@ -6,7 +6,7 @@ platform :ios, '7.0'
 inhibit_all_warnings!
 
 pod 'JSQSystemSoundPlayer'
-
+pod 'FLAnimatedImage', '~> 1.0'
 target :JSQMessagesTests, :exclusive => true do
     pod 'OCMock'
 end
